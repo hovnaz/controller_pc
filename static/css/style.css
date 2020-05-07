@@ -1,0 +1,239 @@
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+
+}
+/* elements which are positioned absolutely. */
+/* Their ultimate offset parent is the viewport */
+/* prevents those elements from breaking out of the body box. */
+body {
+	position: relative;
+	 user-select: none;
+}
+body:hover{
+	 text-decoration-style: none;
+}
+
+*{
+	font-family: 'Baloo Thambi 2', cursive;
+}
+
+main{
+	width: 100%;
+	height: auto;
+	display: block;
+	background-color: #f5f5f5;
+}
+
+
+
+header{
+	width: 100%;
+}
+
+
+.mini-header-left,.mini-header-right{
+	width: 50%;
+	display: flex;
+}
+.mini-header-left{justify-content: flex-start;}
+.mini-header-right{justify-content: flex-end;}
+.mini-header{
+	width: 100%;
+	padding: 8px 16px;
+	background-color: #fff;
+	border-bottom: solid 1px #ccc; 
+	display: flex;
+	justify-content: center;
+}
+.marginR10{
+	margin-right: 10px; 
+}
+
+.header-slide-info-item{
+	overflow: hidden;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc; 
+	display: none;
+	padding: 8px 16px;
+
+}
+.header-slide-info-item-name{
+	display: block;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 16px; 
+}
+
+.search-results{
+	margin-top: 15px; 
+}
+.search-text{
+	text-align: center;
+	font-size: 22px;
+	margin-top: 15px;
+	display: none;
+}
+.range-volume{
+	width: 100px;
+	position: relative;
+	top: 5px;
+}
+
+
+
+.header-slide-mix-music-part-cantener{
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+.header-slide-mix-music-part{
+	display: flex;
+}
+.header-slide-mix-music-part-left{
+	width: 20%;
+	justify-content: flex-start;
+}
+.header-slide-mix-music-part-center{
+	width: 60%;
+	justify-content: center;
+	border-radius: 15px;
+}
+.header-slide-mix-music-part-right{
+	width: 20%;
+	justify-content: flex-end;
+}
+.header-slide-mix-music-footer{
+	display: flex;
+	justify-content: center;
+	margin-top: 5px; 
+	padding: 0 15px;
+}
+.header-slide-mix-music-footer-left{
+	width: 20%;
+	display: flex;
+	justify-content: flex-start;
+}
+.header-slide-mix-music-footer-right{
+	width: 20%;
+	display: flex;
+	justify-content: flex-end;
+}
+.header-slide-mix-music-footer-center{
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+.header-slide-mix-music-footer-center button{
+	margin-left: 5px; 
+}
+.fileinput{
+	overflow: hidden;
+	display: none;
+}
+.fileinput_label{
+	min-width: 50px; 
+	max-width: 200px;
+	height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+.rotate_90{
+	-ms-transform: rotate(90deg); /* IE 9 */
+	transform: rotate(90deg);
+}
+
+
+
+
+
+
+.keyboard-container{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #dfdfdf;
+	padding: 16px 8px 0px 8px
+}
+.keyboard-container-letter-list{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 8px;
+}
+.keyboard-container-item,.keyboard-container-item-animation{
+	margin-right: 8px;
+	background-color: #fff;
+	border-radius: 5px;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 24px;
+	color: #454545;
+}
+
+.keyboard-container-item-animation{
+	display: none;
+	border: 0.5px solid #e3e3e3;
+	position: absolute;
+	/*left: 0;*/
+	/*bottom: 0;*/
+	font-size: 18px;
+	color: #333;
+	-ms-transform: scale(1.5); /* IE 9 */
+	transform: scale(1.5); /* Standard syntax */
+}
+
+.keyboard-container-number-list .keyboard-container-item{
+	height: 36px;
+	line-height: 36px;
+}
+.keyboard-container-item-hotkey{
+	background-color: #fff;
+	border-radius: 5px;
+	width: 42px;
+	height: 50px;
+	line-height: 52px;
+	text-align: center;
+	font-size: 20px;
+	color: #737373;
+}
+.keyboard-container-space{
+	background-color: #fff;
+	border-radius: 5px;
+	margin-right: 8px;
+	width: 140px;
+	height: 50px;
+	line-height: 52px;
+	text-align: center;
+	font-size: 24px;
+	color: #737373;
+}
+.keyboard-container-item:active,.keyboard-container-item-hotkey:active,.keyboard-container-space:active{
+	background-color: #d7d7d5;
+}
+
+.keyboard-container-empty{
+	height: 50px;
+}
+.active_key{
+	color: red;
+}
+.focus_key{
+	color: #fff;
+	background-color: red;
+}
+.keyboard-container-letter-list:last-child{margin-bottom: 0;}
+.keyboard-container-item:last-child{margin-right: 0;}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>Freelex Controller PC</title>
+
+
+
+		<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- bootstrap -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+	<!-- fontawesome sa miqich hin versia e heto petq e tarmacvi versin -->
+	<link rel="stylesheet" type="text/css" href="static/fontawesome-free-5.9.0-web/css/all.min.css">
+	<script type="text/javascript" src="static/fontawesome-free-5.9.0-web/js/all.min.js"></script>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet"> 
+
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet"> 
+
+
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+	<script type="text/javascript" src="static/js/function.js" charset="utf-8"></script>
+
+
+<style type="text/css">
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+	content: "Audio";
+}
+</style>
+
+
+
+</head>
+<body style="overflow-x:hidden;">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf-8">
+		var socket = io();
+	</script>
+
+	<main>
+		<header>
+			<div class="mini-header">
+				<div class="mini-header-left">
+					<button class="btn text-primary" style="padding: 0 16px;margin-right: 15px; ">
+						<i class="fab fa-foursquare"></i><span style="font-family: 'Baloo Da 2', cursive;">reelex</span>
+					</button>
+				</div>
+				<div class="mini-header-right">
+					<button class="mini-header-item btn btn-light marginR10" onclick="slideToggle('.header-slide-keyboard')">
+						<i class="fas fa-keyboard"></i>
+					</button>
+					<button class="mini-header-item btn btn-light marginR10" onclick="slideToggle('.header-slide-mix')">
+						<i class="fas fa-music"></i>
+					</button>
+					<button class="mini-header-item btn btn-light marginR10" onclick="slideToggle('.header-slide-search')">
+						<i class="fas fa-anchor"></i>
+					</button>
+					<button class="mini-header-item btn btn-light" onclick="slideToggle('.header-slide-functional')">
+						<i class="fas fa-th"></i>
+					</button>
+
+				</div>
+			</div>
+			<div class="header-slide-info">
+				<div class="header-slide-info-item header-slide-keyboard">
+
+					<div class="input-group">
+					  <div class="input-group-prepend">
+						<span class="input-group-text">Entering Command</span>
+						</div>
+						<textarea id="keybord_typeing" class="form-control" aria-label="With textarea" style="min-height: 80px;max-height: 110px;"></textarea>
+						<button class="btn btn-outline-secondary" type="submit" onclick="ReturnKey('','',['#keybord_typeing']);">Submit</button>
+					</div>
+
+					<div class="keyboard-container">
+						<div class="keyboard-container-letter-list keyboard-container-letter-list-str">
+							<div class="keyboard-container-item">
+								<span>1</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>2</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>3</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>4</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>5</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>6</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>7</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>8</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>9</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>0</span>
+							</div>
+						</div>
+						<div class="keyboard-container-letter-list keyboard-container-letter-list-str">
+							<div class="keyboard-container-item">
+								<span>q</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>w</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>e</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>r</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>t</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>y</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>u</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>i</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>o</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>p</span>
+							</div>
+
+							
+						</div>
+						<div class="keyboard-container-letter-list keyboard-container-letter-list-str">
+							<div class="keyboard-container-item">
+								<span>a</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>s</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>d</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>f</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>g</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>h</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>j</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>k</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>l</span>
+							</div>
+							
+						</div>
+						<div class="keyboard-container-letter-list keyboard-container-letter-list-str">
+							<div class="keyboard-container-item-hotkey" id="keyboard-container-item-hotkey-shift" onclick="shift_click();ReturnKey('keyboard press','shift')" style="margin-right: 12px;">
+								<i class="fas fa-arrow-alt-circle-up"></i>
+							</div>
+							<div class="keyboard-container-item">
+								<span>z</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>x</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>c</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>v</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>b</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>n</span>
+							</div>
+							<div class="keyboard-container-item">
+								<span>m</span>
+							</div>
+							<div class="keyboard-container-item-hotkey" onclick="ReturnKey('keyboard press','backspace')" style="margin-left: 4px;">
+								<i class="fas fa-backspace"></i>
+							</div>
+						</div>
+						<div class="keyboard-container-letter-list">
+							<div class="keyboard-container-item-hotkey" id="change_sinnvoll" style="margin-right: 8px;">
+								<span>!#1</span>
+							</div>
+							<div class="keyboard-container-item-hotkey" style="margin-right: 8px;color: #f65454">
+								<i class="fas fa-fire-alt"></i>
+							</div>
+							<div class="keyboard-container-item-hotkey" style="margin-right: 8px;color: #59bfff">
+								<i class="fas fa-fire"></i>
+							</div>
+
+							<div class="keyboard-container-space" onclick="ReturnKey('keyboard press','space')">
+								<i class="fab fa-canadian-maple-leaf"></i>
+							</div>
+							<div class="keyboard-container-item keyboard-container-item-another">
+								<span>.</span>
+							</div>
+							<div class="keyboard-container-item-hotkey" onclick="ReturnKey('keyboard press','enter')" style="margin-left: 4px;">
+								<i class="fas fa-level-down-alt rotate_90"></i>
+							</div>
+						</div>
+						<div class="keyboard-container-empty">
+							
+						</div>
+						<div class="keyboard-container-item-animation">
+							<span></span>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="header-slide-info-item header-slide-search">
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" class="btn btn-light" onclick="ReturnKey('sudo','photo-Webcam')"><i class="fas fa-camera"></i></button>
+						<button type="button" class="btn btn-light" onclick="ReturnKey('sudo','video-Webcam')"><i class="fas fa-video"></i></button>
+						<button type="button" class="btn btn-light" onclick="ReturnKey('sudo window','screenshot')">
+							<i class="fas fa-window-maximize"></i>
+						</button>
+						
+					</div>
+
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" class="btn btn-light" ondblclick="ReturnKey('sudo','shutdown')"><i class="fas fa-dice-d6"></i></button>
+					</div>
+
+
+
+				</div>
+				
+				<div class="header-slide-info-item header-slide-mix">
+					
+					<div class="header-slide-mix-music-part-cantener">
+						<div class="header-slide-mix-music-part header-slide-mix-music-part-left">
+							<button type="button" class="btn text-dark music-controller music-controller-backward">
+								<i class="fas fa-step-backward"></i>
+								<i class="fas fa-backward"></i>	
+							</button>
+							
+						</div>
+
+						<button type="button" class="btn header-slide-mix-music-part header-slide-mix-music-part-center">
+							<input type="range" class="custom-range" value="0" min="0" id="sound-pos" onmouseup="ReturnKey('sudo playsound','-postion',['#sound-pos']);">
+						</button>
+						<div class="header-slide-mix-music-part header-slide-mix-music-part-right">
+							<button type="button" class="btn text-dark music-controller music-controller-forward" onclick="ReturnKey('sudo playsound','-setpos')">
+								<i class="fas fa-forward"></i>
+								<i class="fas fa-step-forward"></i>
+							</button>
+						</div>
+					</div>
+					<div class="header-slide-mix-music-footer">
+						<div class="header-slide-mix-music-footer-left">
+							<div class="music-controller-all">
+						<button type="button" class="btn btn-primary" id="change-volume" onclick="ReturnKey('sudo playsound','-v',['#range-volume-change']);ReturnKey('sudo playsound','-postion',['#sound-pos']);">
+							<i class="fas fa-podcast"></i>
+						</button>
+					</div>
+						</div>
+						<div class="header-slide-mix-music-footer-center">
+							<button type="button" class="btn btn-light play-pause-controller"><i class="fas fa-play"></i></button>
+
+							<button type="button" class="btn btn-light music-redo-controller"><i class="fas fa-redo"></i></button>
+		
+							
+						</div>
+						<div class="header-slide-mix-music-footer-right">
+							<div class="range-volume">
+								<input type="range" class="custom-range" id="range-volume-change" min="0" max="1" step="0.001" id="customRange3" onmouseup="ReturnKey('sudo playsound','-v',['#range-volume-change']);">
+							</div>
+
+						</div>
+
+					</div>
+					<form action="/" method="POST"
+							enctype="multipart/form-data" id="inputFileAudioSelected_form" style="margin-top: 6px;">
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="inputFileAudioSelected" aria-describedby="inputFileAudioSelected_submit" accept='audio/*' name="AudioPlayFile">	
+								<label class="custom-file-label" for="inputFileAudioSelected" id="inputFileAudioSelected_label" style="overflow: hidden;">Choose file</label>
+							</div>
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" type="button" id="inputFileAudioSelected_button">Upload</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+				<div class="header-slide-info-item header-slide-functional">
+					<h1>Functional</h1>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<div class="window-pc-storage">
+
+					<a href="static/public/webcam/video.mp4" download>
+						<button type="button" class="btn btn-primary">Download Video</button>
+					</a>
+
+				<div class="text-center window-pc-storage-photo">
+					photo
+					<img src="static/public/webcam/screen.png" class="rounded" alt="photo" style="width: 250px;">
+					<a href="static/public/webcam/screen.png" download>
+						<button type="button" class="btn btn-primary">Download</button>
+					</a>
+				</div>
+
+
+				<div class="text-center window-pc-storage-screenshot">
+					screenshot
+					<img src="static/public/screenshot/foo.png" class="rounded" alt="screenshot" style="width: 250px;">
+					<a href="static/public/screenshot/foo.png" download>
+						<button type="button" class="btn btn-primary">Download</button>
+					</a>
+				</div>
+					
+
+				
+			</div>
+		</div>
+		<footer>
+			
+		</footer>
+
+
+
+
+
+
+
+
+	</main>
+	<script type="text/javascript" src="static/js/script.js" charset="utf-8"></script>
+</body>
+</html>
+
+
+
+
+	
